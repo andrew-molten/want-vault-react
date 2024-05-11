@@ -9,7 +9,10 @@ function AddProduct() {
     name: '',
   })
 
-  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {}
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const inputName = e.target.name
+    setProduct({ ...product, [inputName]: e.target.value })
+  }
 
   return (
     <>
