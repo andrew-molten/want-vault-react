@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 interface Product {
   name: string
   brand: string
-  price: number | undefined
-  willingTopay: number | undefined
+  price: number
+  willingTopay: number
   productLink: string
   pros: string
   cons: string
@@ -14,8 +14,8 @@ function AddProduct() {
   const [product, setProduct] = useState<Product>({
     name: '',
     brand: '',
-    price: undefined,
-    willingTopay: undefined,
+    price: 0,
+    willingTopay: 0,
     productLink: '',
     pros: '',
     cons: '',
@@ -40,20 +40,61 @@ function AddProduct() {
         />
         <br />
         <label htmlFor="brand">Preferred brand: </label>
-        <input type="text" id="brand" name="brand" />
+        <input
+          value={product.brand}
+          type="text"
+          id="brand"
+          name="brand"
+          onChange={handleChange}
+        />
         <br />
         <label htmlFor="price">Current price: $</label>
-        <input type="text" id="price" name="price" /> <br />
+        <input
+          value={product.price}
+          type="number"
+          id="price"
+          name="price"
+          onChange={handleChange}
+        />{' '}
+        <br />
         <label htmlFor="willing-to-pay">
           How much are you willing to pay?{' $'}
         </label>
-        <input type="text" id="willing-to-pay" name="willingTopay" /> <br />
+        <input
+          value={product.willingTopay}
+          type="number"
+          id="willing-to-pay"
+          name="willingTopay"
+          onChange={handleChange}
+        />{' '}
+        <br />
         <label htmlFor="product-link">Link: </label>
-        <input type="text" id="product-link" name="productLink" /> <br />
+        <input
+          value={product.productLink}
+          type="text"
+          id="product-link"
+          name="productLink"
+          onChange={handleChange}
+        />{' '}
+        <br />
         <label htmlFor="pros">Pros: </label>
-        <input type="text" id="pros" name="pros" /> <br />
+        <input
+          value={product.pros}
+          type="text"
+          id="pros"
+          name="pros"
+          onChange={handleChange}
+        />{' '}
+        <br />
         <label htmlFor="cons">Cons: </label>
-        <input type="text" id="cons" name="cons" /> <br />
+        <input
+          value={product.cons}
+          type="text"
+          id="cons"
+          name="cons"
+          onChange={handleChange}
+        />{' '}
+        <br />
       </form>
     </>
   )
